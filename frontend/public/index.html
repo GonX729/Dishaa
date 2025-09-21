@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta
+      name="description"
+      content="Disha AI - Your intelligent career development companion. Build optimized resumes, discover learning opportunities, verify certifications, and find your dream job with AI-powered recommendations."
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Disha AI - Career Builder</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Meta Tags for SEO -->
+    <meta property="og:title" content="Disha AI - Career Builder" />
+    <meta property="og:description" content="Your intelligent career development companion. Build optimized resumes, discover learning opportunities, and find your dream job with AI-powered recommendations." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://disha-ai.com" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Disha AI - Career Builder" />
+    <meta name="twitter:description" content="Your intelligent career development companion. Build optimized resumes, discover learning opportunities, and find your dream job with AI-powered recommendations." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/static/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  </head>
+  <body>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>You need to enable JavaScript to run Disha AI Career Builder.</p>
+        <p>Please enable JavaScript in your browser settings and refresh the page.</p>
+      </div>
+    </noscript>
+    
+    <!-- Main React App Container -->
+    <div id="root"></div>
+    
+    <!-- Loading Fallback -->
+    <div id="loading-fallback" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f8fafc; z-index: 9999;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+        <div style="width: 40px; height: 40px; border: 4px solid #e5e7eb; border-top: 4px solid #2563eb; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+        <p style="color: #6b7280; font-family: 'Inter', sans-serif;">Loading Disha AI...</p>
+      </div>
+    </div>
+    
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Hide loading fallback when React loads */
+      #root:not(:empty) ~ #loading-fallback {
+        display: none !important;
+      }
+      
+      /* Show loading fallback if React takes too long */
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+      }
+      
+      code {
+        font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+      }
+      
+      /* Ensure full height layout */
+      html, body, #root {
+        height: 100%;
+        min-height: 100vh;
+      }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Focus styles for accessibility */
+      *:focus {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
+      }
+      
+      /* Remove focus outline for mouse users */
+      .js-focus-visible *:focus:not(.focus-visible) {
+        outline: none;
+      }
+    </style>
+    
+    <script>
+      // Show loading fallback after 2 seconds if React hasn't loaded
+      setTimeout(function() {
+        if (!document.getElementById('root').innerHTML) {
+          document.getElementById('loading-fallback').style.display = 'block';
+        }
+      }, 2000);
+      
+      // Focus-visible polyfill for better accessibility
+      (function() {
+        function applyFocusVisiblePolyfill(scope) {
+          var hadKeyboardEvent = true;
+          var keyboardThrottleTimeout = 100;
+          var keyboardThrottleTimeoutID = 0;
+          
+          function onKeyDown() {
+            hadKeyboardEvent = true;
+          }
+          
+          function onPointerDown() {
+            hadKeyboardEvent = false;
+          }
+          
+          function onFocus(e) {
+            if (hadKeyboardEvent || e.target.matches(':focus-visible')) {
+              e.target.classList.add('focus-visible');
+            }
+          }
+          
+          function onBlur(e) {
+            e.target.classList.remove('focus-visible');
+          }
+          
+          scope.addEventListener('keydown', onKeyDown, true);
+          scope.addEventListener('mousedown', onPointerDown, true);
+          scope.addEventListener('pointerdown', onPointerDown, true);
+          scope.addEventListener('touchstart', onPointerDown, true);
+          scope.addEventListener('focus', onFocus, true);
+          scope.addEventListener('blur', onBlur, true);
+          
+          scope.classList.add('js-focus-visible');
+        }
+        
+        applyFocusVisiblePolyfill(document);
+      })();
+      
+      // Performance monitoring
+      if ('performance' in window && 'mark' in window.performance) {
+        window.performance.mark('app-start');
+      }
+    </script>
+  </body>
+</html>

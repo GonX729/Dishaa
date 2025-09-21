@@ -1,0 +1,31 @@
+{
+  "short_name": "Disha AI",
+  "name": "Disha AI - Career Builder",
+  "description": "Your intelligent career development companion. Build optimized resumes, discover learning opportunities, verify certifications, and find your dream job with AI-powered recommendations.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#f8fafc",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["business", "education", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
